@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_nav_home"
+        android:title="@string/nav_home" />
+
+    <item
+        android:id="@+id/nav_chores"
+        android:icon="@drawable/ic_nav_chores"
+        android:title="@string/nav_chores" />
+
+    <item
+        android:id="@+id/nav_expenses"
+        android:icon="@drawable/ic_nav_expenses"
+        android:title="@string/nav_expenses" />
+
+    <item
+        android:id="@+id/nav_roommates"
+        android:icon="@drawable/ic_nav_roommates"
+        android:title="@string/nav_roommates" />
+
+    <item
+        android:id="@+id/nav_balance"
+        android:icon="@drawable/ic_nav_balance"
+        android:title="@string/nav_balance" />
+
+</menu>
