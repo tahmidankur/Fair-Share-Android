@@ -22,23 +22,12 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * AddChoreActivity — form to add a new household chore.
- *
- * Features:
- * - Assign to a roommate (Spinner populated from DB)
- * - Pick a due date with a date picker dialog
- * - Choose frequency (Daily / Weekly / Bi-weekly / Monthly / One-time)
- * - Toggle auto-rotation (chore moves to next roommate after completion)
- */
 public class AddChoreActivity extends AppCompatActivity {
-
     private TextInputEditText etTitle, etDescription, etDueDate;
     private Spinner           spinnerAssignTo, spinnerFrequency;
     private SwitchCompat      switchRotation;
     private RoomEaseDatabase  db;
 
-    // We keep the full Roommate list so we can get the ID from the selection
     private List<Roommate>    roommateList = new ArrayList<>();
 
     @Override
@@ -63,7 +52,6 @@ public class AddChoreActivity extends AppCompatActivity {
         findViewById(R.id.btn_save_chore).setOnClickListener(v -> saveChore());
     }
 
-    /** Populates the Assign To spinner with roommates from the database. */
     private void setupRoommateSpinner() {
         roommateList = db.roommateDao().getAllRoommates();
 
@@ -82,22 +70,19 @@ public class AddChoreActivity extends AppCompatActivity {
         spinnerAssignTo.setAdapter(adapter);
     }
 
-    /** Populates the Frequency spinner from the string-array in strings.xml */
     private void setupFrequencySpinner() {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.frequency_options, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerFrequency.setAdapter(adapter);
-        spinnerFrequency.setSelection(1); // default to Weekly
+        spinnerFrequency.setSelection(1);
     }
 
-    /** Opens a calendar dialog when the user taps the due date field. */
     private void setupDatePicker() {
         etDueDate.setOnClickListener(v -> {
             Calendar c = Calendar.getInstance();
             new DatePickerDialog(this,
                 (view, year, month, day) -> {
-                    // Format as yyyy-MM-dd
                     String formatted = String.format(Locale.getDefault(),
                             "%04d-%02d-%02d", year, month + 1, day);
                     etDueDate.setText(formatted);
@@ -108,7 +93,6 @@ public class AddChoreActivity extends AppCompatActivity {
             ).show();
         });
 
-        // Pre-fill with today's date
         String today = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
                 .format(Calendar.getInstance().getTime());
         etDueDate.setText(today);
@@ -133,7 +117,6 @@ public class AddChoreActivity extends AppCompatActivity {
         }
         if (spinnerAssignTo.getSelectedItemPosition() < 0) return;
 
-        // Get the selected roommate's actual database ID
         Roommate selected = roommateList.get(spinnerAssignTo.getSelectedItemPosition());
 
         Chore chore = new Chore(

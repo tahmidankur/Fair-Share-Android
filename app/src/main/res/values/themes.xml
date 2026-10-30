@@ -14,7 +14,6 @@
         <item name="colorAccent">@color/accent</item>
         <item name="android:windowBackground">@color/background</item>
         <item name="android:statusBarColor">@color/primary_dark</item>
-        <!-- Make sure button text color is always white on filled buttons -->
         <item name="materialButtonStyle">@style/RoomEase.Button</item>
     </style>
 
@@ -44,7 +43,6 @@
         <item name="cardBackgroundColor">@color/card_bg</item>
     </style>
 
-    <!-- Filled primary button — white text guaranteed -->
     <style name="RoomEase.Button" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/primary</item>
         <item name="android:textColor">#FFFFFF</item>
@@ -54,7 +52,6 @@
         <item name="android:letterSpacing">0.02</item>
     </style>
 
-    <!-- Outlined secondary button -->
     <style name="RoomEase.Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="strokeColor">@color/primary</item>
         <item name="android:textColor">@color/primary</item>
@@ -62,7 +59,6 @@
         <item name="backgroundTint">@android:color/transparent</item>
     </style>
 
-    <!-- Text input outline style -->
     <style name="RoomEase.TextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">@color/primary</item>
         <item name="hintTextColor">@color/primary</item>

@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Locale;
 
 public class BalanceAdapter extends RecyclerView.Adapter<BalanceAdapter.ViewHolder> {
-
     private List<BalanceEntry> entries;
 
     public BalanceAdapter(List<BalanceEntry> entries) {
@@ -37,7 +36,6 @@ public class BalanceAdapter extends RecyclerView.Adapter<BalanceAdapter.ViewHold
         h.tvFrom.setText(entry.getFromName());
         h.tvTo.setText(entry.getToName());
 
-        // Show "owes (for X)" for per-expense debts, or just "owes" for settlements
         if (entry.isRawDebt()) {
             h.tvLabel.setText("owes — " + entry.getExpenseTitle());
         } else {

@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Locale;
 
 public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ViewHolder> {
-
     private List<Expense>    expenses;
     private RoomEaseDatabase db;
 
@@ -40,7 +39,6 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ViewHold
         Expense e = expenses.get(position);
 
         h.tvTitle.setText(e.getTitle());
-        // Format the amount as currency, e.g. "$18.50"
         h.tvAmount.setText(String.format(Locale.getDefault(), "$%.2f", e.getAmount()));
         h.tvCategory.setText(e.getCategory());
 

@@ -19,7 +19,6 @@ import com.example.roomease.database.entities.Roommate;
 import java.util.List;
 
 public class ChoreAdapter extends RecyclerView.Adapter<ChoreAdapter.ViewHolder> {
-
     public interface OnChoreActionListener {
         void onMarkComplete(Chore chore);
         void onViewHistory(Chore chore);
@@ -49,7 +48,6 @@ public class ChoreAdapter extends RecyclerView.Adapter<ChoreAdapter.ViewHolder> 
 
         h.tvTitle.setText(chore.getTitle());
 
-        // Show description only if there is one
         if (chore.getDescription() != null && !chore.getDescription().isEmpty()) {
             h.tvDescription.setText(chore.getDescription());
             h.tvDescription.setVisibility(View.VISIBLE);
@@ -57,13 +55,11 @@ public class ChoreAdapter extends RecyclerView.Adapter<ChoreAdapter.ViewHolder> 
             h.tvDescription.setVisibility(View.GONE);
         }
 
-        // Look up the assigned roommate's name
         Roommate assigned = db.roommateDao().getRoommateById(chore.getAssignedToId());
         h.tvAssigned.setText("Assigned to: " + (assigned != null ? assigned.getName() : "—"));
 
         h.tvDue.setText("Due: " + (chore.getDueDate() != null ? chore.getDueDate() : "—"));
 
-        // Colour the status badge depending on whether it's done or pending
         if ("Completed".equals(chore.getStatus())) {
             h.tvStatus.setText("✓ Done");
             h.tvStatus.setBackgroundResource(R.drawable.bg_status_completed);
@@ -78,7 +74,6 @@ public class ChoreAdapter extends RecyclerView.Adapter<ChoreAdapter.ViewHolder> 
             h.btnMarkComplete.setAlpha(1.0f);
         }
 
-        // Show the rotation badge only if enabled
         h.tvRotationTag.setVisibility(chore.isRotationEnabled() ? View.VISIBLE : View.GONE);
 
         h.btnMarkComplete.setOnClickListener(v -> {

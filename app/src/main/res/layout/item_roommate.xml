@@ -19,7 +19,6 @@
         android:orientation="horizontal"
         android:padding="16dp">
 
-        <!-- Avatar circle with initial letter -->
         <FrameLayout
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -35,7 +34,6 @@
                 android:text="?" />
         </FrameLayout>
 
-        <!-- Name + contact info -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -73,7 +71,6 @@
                 android:visibility="gone" />
         </LinearLayout>
 
-        <!-- Delete button -->
         <ImageButton
             android:id="@+id/btn_delete_roommate"
             android:layout_width="36dp"

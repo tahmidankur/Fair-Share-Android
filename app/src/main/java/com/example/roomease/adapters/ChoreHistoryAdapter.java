@@ -17,7 +17,6 @@ import com.example.roomease.database.entities.Roommate;
 import java.util.List;
 
 public class ChoreHistoryAdapter extends RecyclerView.Adapter<ChoreHistoryAdapter.ViewHolder> {
-
     private List<ChoreHistory> history;
     private RoomEaseDatabase   db;
 

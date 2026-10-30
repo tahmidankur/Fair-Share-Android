@@ -11,7 +11,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Top bar -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,7 +28,6 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- Empty state message -->
         <TextView
             android:id="@+id/tv_empty_roommates"
             android:layout_width="match_parent"
@@ -49,7 +47,6 @@
             android:clipToPadding="false" />
     </LinearLayout>
 
-    <!-- Floating Add button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add_roommate"
         android:layout_width="wrap_content"

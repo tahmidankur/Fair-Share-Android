@@ -23,12 +23,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * ExpensesFragment — lists all logged expenses, newest first.
- * Header shows the running total.
- */
 public class ExpensesFragment extends Fragment {
-
     private ExpenseAdapter   adapter;
     private RoomEaseDatabase db;
     private RecyclerView     rv;

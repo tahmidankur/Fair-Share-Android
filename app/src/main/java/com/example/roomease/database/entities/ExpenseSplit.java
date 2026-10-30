@@ -3,14 +3,8 @@ package com.example.roomease.database.entities;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-/**
- * ExpenseSplit — how much each person owes for a specific expense.
- * Example: For a $30 grocery bill split 3 ways, there would be 3 ExpenseSplit rows,
- * each with shareAmount = 10.0.
- */
 @Entity(tableName = "expense_splits")
 public class ExpenseSplit {
-
     @PrimaryKey(autoGenerate = true)
     public int id;
 

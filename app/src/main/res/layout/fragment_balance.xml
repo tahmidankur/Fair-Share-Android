@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,7 +27,6 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- All-settled message (shown when nobody owes anything) -->
         <TextView
             android:id="@+id/tv_all_settled"
             android:layout_width="match_parent"
@@ -40,7 +38,6 @@
             android:textSize="15sp"
             android:visibility="gone" />
 
-        <!-- Section: Who owes what (per-expense breakdown) -->
         <TextView
             android:id="@+id/tv_label_debts"
             android:layout_width="match_parent"
@@ -62,7 +59,6 @@
             android:layout_marginEnd="12dp"
             android:nestedScrollingEnabled="false" />
 
-        <!-- Divider -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -71,7 +67,6 @@
             android:layout_marginEnd="20dp"
             android:background="@color/divider" />
 
-        <!-- Section: Settlement suggestions (simplified) -->
         <TextView
             android:id="@+id/tv_label_settle"
             android:layout_width="match_parent"

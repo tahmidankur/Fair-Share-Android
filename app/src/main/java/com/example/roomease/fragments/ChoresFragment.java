@@ -25,11 +25,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-/**
- * ChoresFragment — shows all chores, with buttons to mark them done or view history.
- */
 public class ChoresFragment extends Fragment {
-
     private ChoreAdapter     adapter;
     private RoomEaseDatabase db;
     private RecyclerView     rv;
@@ -56,7 +52,6 @@ public class ChoresFragment extends Fragment {
         adapter = new ChoreAdapter(requireContext(), chores, new ChoreAdapter.OnChoreActionListener() {
             @Override
             public void onMarkComplete(Chore chore) {
-                // Use the helper to handle rotation + history + date update
                 new ChoreRotationHelper(db).completeAndRotate(chore);
                 Toast.makeText(requireContext(), chore.getTitle() + " done! ✓",
                         Toast.LENGTH_SHORT).show();

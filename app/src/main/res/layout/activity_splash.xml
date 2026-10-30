@@ -6,7 +6,6 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <!-- App icon circle -->
     <FrameLayout
         android:layout_width="100dp"
         android:layout_height="100dp"
