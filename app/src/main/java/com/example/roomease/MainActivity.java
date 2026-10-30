@@ -12,13 +12,7 @@ import com.example.roomease.fragments.HomeFragment;
 import com.example.roomease.fragments.RoommatesFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-/**
- * MainActivity — the shell of the app.
- * It owns the BottomNavigationView and swaps the centre fragment
- * whenever the user taps a nav item.
- */
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,12 +20,10 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 
-        // Show Home fragment on first launch
         if (savedInstanceState == null) {
             replaceFragment(new HomeFragment());
         }
 
-        // Swap fragment when user taps a bottom nav item
         bottomNav.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
 
@@ -45,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    /** Swaps the fragment shown in fragment_container. */
     private void replaceFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()

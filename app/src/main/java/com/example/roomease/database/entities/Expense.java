@@ -3,13 +3,8 @@ package com.example.roomease.database.entities;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-/**
- * Expense — a shared household cost (groceries, electricity bill, etc.).
- * Records who paid and how much. The actual split is stored in ExpenseSplit.
- */
 @Entity(tableName = "expenses")
 public class Expense {
-
     @PrimaryKey(autoGenerate = true)
     public int id;
 

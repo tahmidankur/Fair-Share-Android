@@ -18,7 +18,6 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Top row: title + status badge -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,7 +47,6 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- Description (hidden if empty) -->
         <TextView
             android:id="@+id/tv_chore_description"
             android:layout_width="match_parent"
@@ -59,7 +57,6 @@
             android:text=""
             android:visibility="gone" />
 
-        <!-- Meta row: assigned + due date -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -84,7 +81,6 @@
                 android:text="Due: —" />
         </LinearLayout>
 
-        <!-- Auto-rotate badge -->
         <TextView
             android:id="@+id/tv_rotation_tag"
             android:layout_width="wrap_content"
@@ -95,7 +91,6 @@
             android:textSize="12sp"
             android:visibility="gone" />
 
-        <!-- Divider -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -103,13 +98,11 @@
             android:layout_marginBottom="12dp"
             android:background="@color/divider" />
 
-        <!-- ===== REDESIGNED BUTTONS ===== -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- "Mark Done" — filled blue button with explicit white text -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_mark_complete"
                 android:layout_width="0dp"
@@ -119,7 +112,6 @@
                 android:text="Mark Done"
                 style="@style/RoomEase.FilledButton" />
 
-            <!-- "History" — outlined button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_view_history"
                 android:layout_width="0dp"

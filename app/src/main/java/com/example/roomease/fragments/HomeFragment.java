@@ -19,13 +19,7 @@ import com.example.roomease.database.entities.ChoreHistory;
 
 import java.util.List;
 
-/**
- * HomeFragment — the dashboard.
- * Shows quick stats (roommate count, pending chores, expense count)
- * and the 5 most recent chore completions.
- */
 public class HomeFragment extends Fragment {
-
     private RoomEaseDatabase   db;
     private ChoreHistoryAdapter historyAdapter;
 
@@ -42,7 +36,6 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         db = RoomEaseDatabase.getInstance(requireContext());
 
-        // Set up the recent history RecyclerView
         RecyclerView rv = view.findViewById(R.id.rv_recent_history);
         rv.setLayoutManager(new LinearLayoutManager(requireContext()));
 
@@ -51,11 +44,6 @@ public class HomeFragment extends Fragment {
         rv.setAdapter(historyAdapter);
     }
 
-    /**
-     * onResume is called every time this fragment becomes visible —
-     * including when we return from an Add screen. Refreshing here
-     * ensures the stats and list are always up to date.
-     */
     @Override
     public void onResume() {
         super.onResume();
@@ -65,7 +53,6 @@ public class HomeFragment extends Fragment {
     private void refreshStats() {
         if (getView() == null) return;
 
-        // Update the three stat numbers
         int roommateCount = db.roommateDao().getRoommateCount();
         int pendingChores = db.choreDao().getPendingChoreCount();
         int expenseCount  = db.expenseDao().getExpenseCount();
@@ -74,7 +61,6 @@ public class HomeFragment extends Fragment {
         ((TextView) getView().findViewById(R.id.tv_stat_chores)).setText(String.valueOf(pendingChores));
         ((TextView) getView().findViewById(R.id.tv_stat_expenses)).setText(String.valueOf(expenseCount));
 
-        // Refresh the recent history list
         List<ChoreHistory> recent = db.choreHistoryDao().getRecentHistory();
         TextView tvNoRecent = getView().findViewById(R.id.tv_no_recent);
 

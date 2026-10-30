@@ -3,13 +3,8 @@ package com.example.roomease.database.entities;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-/**
- * Chore — one household task (dishes, vacuuming, etc.).
- * Tracks who it's assigned to, when it's due, and how often it repeats.
- */
 @Entity(tableName = "chores")
 public class Chore {
-
     @PrimaryKey(autoGenerate = true)
     public int id;
 
@@ -32,7 +27,6 @@ public class Chore {
         this.rotationEnabled = rotationEnabled;
     }
 
-    // Getters
     public int     getId()               { return id;               }
     public String  getTitle()            { return title;            }
     public String  getDescription()      { return description;      }
@@ -42,7 +36,6 @@ public class Chore {
     public String  getStatus()           { return status;           }
     public boolean isRotationEnabled()   { return rotationEnabled;  }
 
-    // Setters — needed when updating after completion
     public void setAssignedToId(int id)  { this.assignedToId = id;  }
     public void setDueDate(String date)  { this.dueDate = date;      }
     public void setStatus(String status) { this.status = status;     }

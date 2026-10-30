@@ -20,17 +20,7 @@ import com.example.roomease.models.BalanceEntry;
 
 import java.util.List;
 
-/**
- * BalanceFragment — the "who owes whom" screen.
- *
- * Shows two sections:
- * 1. "Who Owes What"        — per-expense raw debts
- * 2. "Settlement Suggestions" — optimised minimum payments
- *
- * Both lists are computed by ExpenseCalculationHelper.
- */
 public class BalanceFragment extends Fragment {
-
     private RoomEaseDatabase db;
 
     @Nullable
@@ -78,7 +68,6 @@ public class BalanceFragment extends Fragment {
         TextView tvLabelSettle   = root.findViewById(R.id.tv_label_settle);
 
         if (rawDebts.isEmpty() && settlements.isEmpty()) {
-            // Nobody owes anyone — show the happy message
             tvAllSettled.setVisibility(View.VISIBLE);
             tvLabelDebts.setVisibility(View.GONE);
             tvLabelSettle.setVisibility(View.GONE);

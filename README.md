@@ -1,37 +1,31 @@
-# Fair Share Android
+# Fair Share
 
-Fair Share is a Java-based Android app that helps roommates manage shared household chores and shared expenses in one place.
+An Android app for roommates to keep track of chores and shared expenses.
 
-## Features
+## What it does
 
-- Add roommates or housemates
-- Create and assign household chores
-- Track who completed each task
-- Rotate chores fairly between members
-- Add shared household purchases
-- Split expenses equally
-- View who owes whom
+- Add roommates
+- Create chores with a due date and a frequency (daily, weekly, bi-weekly, monthly or one-time)
+- Mark a chore done and it rotates to the next roommate, with a history of who did what
+- Log shared purchases and split them equally between whoever was involved
+- Balance screen showing each individual debt plus a shorter list of payments that settles everyone up
 
-## Tech Stack
+Everything is stored on the device with Room (SQLite), so there's no account or internet needed.
 
-- Java
-- Android Studio
-- XML layouts
-- Gradle
+## Built with
 
-## Purpose
+Java, XML layouts, Room, Material Components. Min SDK 24.
 
-This project was built to solve a common roommate problem: keeping chores and shared costs fair, organized, and easy to track.
+## Running it
 
-## Future Improvements
+Open the project in Android Studio and run the `app` configuration, or build from the command line:
 
-- Add login and user accounts
-- Add notifications and reminders
-- Add chore history
-- Add payment status tracking
-- Improve UI design
-- Add cloud storage support
+```bash
+./gradlew assembleDebug
+```
 
-## Author
+## Ideas for later
 
-Tahmid Hossain Ankur
+- Reminders when a chore is due
+- Marking individual debts as paid
+- Sync between roommates' phones

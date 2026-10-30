@@ -3,13 +3,8 @@ package com.example.roomease.database.entities;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-/**
- * ChoreHistory — a record of every time a chore was completed.
- * Think of it like a log: "Ahmed completed 'Dishes' on 2024-03-15".
- */
 @Entity(tableName = "chore_history")
 public class ChoreHistory {
-
     @PrimaryKey(autoGenerate = true)
     public int id;
 

@@ -23,11 +23,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-/**
- * RoommatesFragment — lists all roommates and lets you add or delete them.
- */
 public class RoommatesFragment extends Fragment {
-
     private RoommateAdapter  adapter;
     private RoomEaseDatabase db;
     private RecyclerView     rv;
@@ -56,7 +52,6 @@ public class RoommatesFragment extends Fragment {
 
         updateEmptyState(list);
 
-        // FAB opens the Add Roommate screen
         FloatingActionButton fab = view.findViewById(R.id.fab_add_roommate);
         fab.setOnClickListener(v ->
             startActivity(new Intent(requireContext(), AddRoommateActivity.class)));
@@ -68,7 +63,6 @@ public class RoommatesFragment extends Fragment {
         refreshList();
     }
 
-    /** Shows a confirmation dialog before deleting a roommate. */
     private void confirmDelete(Roommate r) {
         new AlertDialog.Builder(requireContext())
             .setTitle("Remove Roommate")

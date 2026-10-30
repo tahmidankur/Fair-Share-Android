@@ -24,15 +24,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * AddExpenseActivity — form to log a new shared expense.
- *
- * The "Split With" section dynamically creates one CheckBox per roommate.
- * When saved, we calculate each person's equal share and store it in
- * the expense_splits table.
- */
 public class AddExpenseActivity extends AppCompatActivity {
-
     private TextInputEditText etTitle, etAmount, etDate, etNotes;
     private Spinner           spinnerPaidBy, spinnerCategory;
     private LinearLayout      llSplitOptions;
@@ -105,10 +97,6 @@ public class AddExpenseActivity extends AppCompatActivity {
                 .format(Calendar.getInstance().getTime()));
     }
 
-    /**
-     * Creates one CheckBox for every roommate so the user can choose who
-     * shares this expense. Defaults all boxes to checked (everyone splits).
-     */
     private void buildSplitCheckboxes() {
         checkBoxes.clear();
         llSplitOptions.removeAllViews();
@@ -116,8 +104,8 @@ public class AddExpenseActivity extends AppCompatActivity {
         for (Roommate r : roommateList) {
             CheckBox cb = new CheckBox(this);
             cb.setText(r.getName());
-            cb.setChecked(true); // default: split equally with everyone
-            cb.setTag(r.getId()); // store roommate ID in the tag for later
+            cb.setChecked(true);
+            cb.setTag(r.getId());
             llSplitOptions.addView(cb);
             checkBoxes.add(cb);
         }
@@ -130,7 +118,6 @@ public class AddExpenseActivity extends AppCompatActivity {
         String notes    = etNotes.getText()  != null ? etNotes.getText().toString().trim()   : "";
         String category = spinnerCategory.getSelectedItem().toString();
 
-        // --- Basic validation ---
         if (TextUtils.isEmpty(title)) {
             etTitle.setError("Title is required"); etTitle.requestFocus(); return;
         }
@@ -150,7 +137,6 @@ public class AddExpenseActivity extends AppCompatActivity {
             etDate.setError("Date is required"); return;
         }
 
-        // --- Find out who is splitting ---
         List<Roommate> selectedRoommates = new ArrayList<>();
         for (CheckBox cb : checkBoxes) {
             if (cb.isChecked()) {
@@ -168,19 +154,17 @@ public class AddExpenseActivity extends AppCompatActivity {
 
         int paidById = roommateList.get(spinnerPaidBy.getSelectedItemPosition()).getId();
 
-        // --- Save the Expense ---
         Expense expense = new Expense(title, amount, paidById, category, date,
                 notes.isEmpty() ? null : notes);
         long expenseId = db.expenseDao().insert(expense);
 
-        // --- Calculate each person's equal share and save splits ---
         double sharePerPerson = amount / selectedRoommates.size();
         for (Roommate r : selectedRoommates) {
             ExpenseSplit split = new ExpenseSplit(
                 (int) expenseId,
                 r.getId(),
-                Math.round(sharePerPerson * 100.0) / 100.0, // round to 2 decimal places
-                r.getId() == paidById // the payer is already "paid"
+                Math.round(sharePerPerson * 100.0) / 100.0,
+                r.getId() == paidById
             );
             db.expenseSplitDao().insert(split);
         }
